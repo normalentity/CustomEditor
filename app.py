@@ -62,6 +62,7 @@ def file_savas(e: ft.FilePickerResultEvent):
 
 file_plicker = ft.FilePicker(on_result=file_savas)
 
+
 #                                  Main Page                                  #
 # -----------------------------------------------------------------------------#
 

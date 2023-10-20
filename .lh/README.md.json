@@ -3,11 +3,15 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 1,
             "patches": [
                 {
                     "date": 1695037290209,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695124155522,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n # CustomEditor\n \n ***This is a simple text editor that allows you to open files and save files .***\n \n-***I added Fonts options* **\n+***I added Fonts options***\n+\n+**it's also a pdf viewer too**\n"
                 }
             ],
             "date": 1695037290209,

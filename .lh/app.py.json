@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 5,
             "patches": [
                 {
                     "date": 1693757036548,
@@ -12,6 +12,22 @@
                 {
                     "date": 1693757066126,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,10 @@\n \n \n def file_result(e: ft.FilePickerResultEvent):\n     global file_path\n-    file_path = e.files[1].path\n+    file_path = e.files[0].path\n+    print(file_path)\n     f = open(file_path, \"r\")\n     for line in f:\n         TextBox.value += line\n     TextBox.update()\n"
+                },
+                {
+                    "date": 1695037480957,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -103,8 +103,9 @@\n                     ),\n                     alignment=alignment.top_right,\n                     margin=ft.margin.only(10, 15, 60, 0),\n                 ),\n+                \n                 Container(\n                     content=ft.PopupMenuButton(\n                         items=[\n                             ft.PopupMenuItem(\n"
+                },
+                {
+                    "date": 1695037719000,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,9 @@\n     Row,\n     alignment,\n     padding,\n     border,\n+    IconButton\n )\n import os\n \n \n@@ -131,8 +132,12 @@\n                         tooltip=\"Options\",\n                     ),\n                     margin=ft.margin.only(10, 15, 60, 0),\n                 ),\n+                Container(\n+                    ft.PopupMenuButton()\n+                    \n+                )\n             ]\n         ),\n     )\n \n"
+                },
+                {
+                    "date": 1695037754282,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -132,9 +132,27 @@\n                         tooltip=\"Options\",\n                     ),\n                     margin=ft.margin.only(10, 15, 60, 0),\n                 ),\n-                Container(ft.PopupMenuButton()),\n+                Container(ft.PopupMenuButton(items=[ft.PopupMenuItem(\n+                                text=\"Open\",\n+                                icon=icons.FILE_OPEN,\n+                                on_click=lambda _: file_picker.pick_files(\n+                                    allowed_extensions=[\"txt\"],\n+                                    file_type=ft.FilePickerFileType.ANY,\n+                                ),\n+                            ),\n+                            ft.PopupMenuItem(\n+                                text=\"Save\", icon=icons.SAVE, on_click=write\n+                            ),\n+                            ft.PopupMenuItem(\n+                                text=\"Save As\",\n+                                icon=icons.SAVE_AS,\n+                                on_click=lambda c_: file_plicker.save_file(\n+                                    allowed_extensions=[\"txt\"],\n+                                    file_type=ft.FilePickerFileType.ANY,\n+                                ),\n+                            ),])),\n             ]\n         ),\n     )\n \n"
+                },
+                {
+                    "date": 1695038895620,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -135,27 +135,27 @@\n                 ),\n                 Container(\n                     ft.PopupMenuButton(\n                         items=[\n+                            # ft.PopupMenuItem(\n+                            #     text=\"Open\",\n+                            #     icon=icons.FILE_OPEN,\n+                            #     on_click=lambda _: file_picker.pick_files(\n+                            #         allowed_extensions=[\"txt\"],\n+                            #         file_type=ft.FilePickerFileType.ANY,\n+                            #     ),\n+                            # ),\n                             ft.PopupMenuItem(\n-                                text=\"Open\",\n-                                icon=icons.FILE_OPEN,\n-                                on_click=lambda _: file_picker.pick_files(\n-                                    allowed_extensions=[\"txt\"],\n-                                    file_type=ft.FilePickerFileType.ANY,\n-                                ),\n+                                text=\"Times New Roman\", icon=icons.SAVE,on_click=page.fonts{\"Times New Roman\":\"\"}\n                             ),\n-                            ft.PopupMenuItem(\n-                                text=\"Save\", icon=icons.SAVE, on_click=write\n-                            ),\n-                            ft.PopupMenuItem(\n-                                text=\"Save As\",\n-                                icon=icons.SAVE_AS,\n-                                on_click=lambda c_: file_plicker.save_file(\n-                                    allowed_extensions=[\"txt\"],\n-                                    file_type=ft.FilePickerFileType.ANY,\n-                                ),\n-                            ),\n+                            # ft.PopupMenuItem(\n+                            #     text=\"Save As\",\n+                            #     icon=icons.SAVE_AS,\n+                            #     on_click=lambda c_: file_plicker.save_file(\n+                            #         allowed_extensions=[\"txt\"],\n+                            #         file_type=ft.FilePickerFileType.ANY,\n+                            #     ),\n+                            # ),\n                         ]\n                     )\n                 ),\n             ]\n"
                 }
             ],
             "date": 1693757036548,
