@@ -12,8 +12,10 @@ from flet import (
     alignment,
     padding,
     border,
+    IconButton,
 )
 import os
+import _random
 
 
 #                                  User Control                               #
@@ -27,6 +29,7 @@ TextBox = TextBox = ft.TextField(
     label="Editor",
     min_lines=18,
     max_lines=18,
+    text_size=26,
 )
 c5 = Container(TextBox, margin=10)
 
@@ -34,6 +37,7 @@ c5 = Container(TextBox, margin=10)
 def file_result(e: ft.FilePickerResultEvent):
     global file_path
     file_path = e.files[0].path
+    print(file_path)
     f = open(file_path, "r")
     for line in f:
         TextBox.value += line
@@ -74,6 +78,10 @@ def main(page: ft.Page):
     def changelight(event):
         page.theme_mode = ft.ThemeMode.LIGHT
         page.update()
+
+    # def change_font(event):
+    #     page.fonts = {"Times New Roman": "times new roman bold italic.ttf"}
+    #     TextBox.text_style = (ft.TextStyle(font_family="Times New Roman"),)
 
     page.padding = 0
     page.overlay.extend([file_picker, file_plicker])
@@ -134,11 +142,10 @@ def main(page: ft.Page):
             ]
         ),
     )
-    hu = ft.ElevatedButton(ft.Text("hello", size=24))
 
     page.update()
 
-    page.add(c1, c5, hu)
+    page.add(c1, c5)
 
 
 ft.app(target=main)
